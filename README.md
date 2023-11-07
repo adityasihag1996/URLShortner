@@ -10,6 +10,7 @@ Redis is used as a datastore to keep the mappings between the shortened paths an
 
 Approach used to shorten a URL is Base62 encoding approach. A UID (only numeric) is converted to its Base62 form, and that is used as the short postfix for the Shortened URL.
 Ideally a UID generator is ued in distributed systems, like Twitter Snowflake, but for simplicity purposes we are using a global counter here.
+Also, the Redis DB, would ideally not be on the same machine as the API servers, but again, for simplicity, let's assume it is.
 
 ## Getting Started
 
