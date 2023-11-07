@@ -49,12 +49,13 @@ python server.py
 ```
 Your Flask server should be on `HOST` and `PORT` provided in `config.py`.
 
-To shorten a URL, send a POST request to `/shorten` with the original URL. To access a shortened URL, simply navigate to `http://localhost:6969/<shortened_path>`, and you will be redirected to the original URL, if `<shortened_path>` exists.
+To shorten a URL, send a POST request to `/shorten` with the original URL.\
+To access a shortened URL, simply navigate to `http://localhost:6969/<shortened_path>`, and you will be redirected to the original URL, if `<shortened_path>` exists.
 
 ## API Endpoints
-POST /shorten - Shortens a given URL.
-GET /longify - Returns the Long URL of a short URL, if it exists in DB.
-GET /<short_id> - Redirects to the original URL based on the short ID, if it exists in DB.
+POST `/shorten` - Shortens a given URL.\
+GET `/longify` - Returns the Long URL of a short URL, if it exists in DB.\
+GET `/<short_id>` - Redirects to the original URL based on the short ID, if it exists in DB.\
 
 ## Disclaimer
 This project is for educational purposes only. It is not recommended to use this service as-is for any critical or production-level applications.
