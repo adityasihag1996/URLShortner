@@ -2,9 +2,10 @@ from flask import Flask, request, jsonify, redirect, abort
 
 from datastore import DataStore
 from logic import URLShortener
+from config import FLASK_PORT, DOMAIN, REDIS_PORT, REDIS_HOST
 
 
-redis_datastore = DataStore()
+redis_datastore = DataStore(redis_host = REDIS_HOST, redis_port = REDIS_PORT)
 url_shortener = URLShortener()
 
 app = Flask(__name__)
@@ -41,7 +42,7 @@ def shorten():
     
     uid = generate_uid()
     base62_hash = url_shortener.encode_id(uid)
-    short_url = "http://localhost:6969/" + base62_hash
+    short_url = DOMAIN + base62_hash
 
     # If it isn't, add it to the datastore
     redis_datastore.set(base62_hash, [short_url, long_url, uid], db_id = 0, expire = expire)
@@ -91,4 +92,4 @@ def redirect_to_long_url(short_id):
 
 
 if __name__ == '__main__':
-    app.run(debug = True, port = 6969)
+    app.run(debug = True, port = FLASK_PORT)
