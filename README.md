@@ -28,12 +28,12 @@ Which means, we can generate ~3.5 TRILLION unique short URLs.
 1. Clone the repository:
    
 ```
-git clone https://github.com/your-username/simple-url-shortener.git
+git clone https://github.com/adityasihag1996/URLShortner
 ```
 
 Navigate to the project directory:
 ```
-cd simple-url-shortener
+cd URLShortner
 ```
 
 Install the dependencies:
