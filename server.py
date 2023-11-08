@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, redirect, abort
 
 from datastore import DataStore
 from logic import URLShortener
-from config import FLASK_PORT, DOMAIN, REDIS_PORT, REDIS_HOST
+from config import FLASK_PORT, DOMAIN, REDIS_PORT, REDIS_HOST, START, END
 
 
 redis_datastore = DataStore(redis_host = REDIS_HOST, redis_port = REDIS_PORT)
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 ## THIS PART IS JUST FOR SIMPLICITY PURPOSES, CHECK README FOR MORE INFO
-counter = 1000000
+counter = START
 def generate_uid():
     global counter
     counter += 1
